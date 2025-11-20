@@ -1,0 +1,132 @@
+Day 1: Set Up & Basic Database
+Objective: Verify your XAMPP setup is working.
+
+Tasks:
+
+Start Apache & MySQL.
+
+Create your database (shopping_cart_db) using phpMyAdmin.
+
+Define tables:
+
+users (id, username, password, email, role)
+
+categories (id, name)
+
+products (id, name, description, category_id, price, image)
+
+cart (id, user_id, product_id, quantity)
+
+orders (id, user_id, total, date)
+
+coupons (id, code, discount_percent, valid_from, valid_to)
+
+Day 2: Basic PHP Files & DB Connection
+Objective: Set up connection and basic page structure.
+
+Tasks:
+
+Create db.php for database connection.
+
+Create index.php as homepage (list categories, products).
+
+Implement simple display of categories and products from DB.
+
+Day 3: User Registration & Login
+Objective: Basic user authentication.
+
+Tasks:
+
+Build register.php with form validation, CAPTCHA.
+
+Build login.php.
+
+Implement login sessions.
+
+Protect pages like cart, checkout.
+
+Day 4: Admin Management (Categories & Products)
+Objective: CRUD for categories and products.
+
+Tasks:
+
+Create admin/categories.php to add/edit/delete categories.
+
+Create admin/products.php to add/edit/delete products (include image upload).
+
+Secure admin pages with login.
+
+Day 5: Product Listing and Add to Cart
+Objective: Display products by category and add to cart.
+
+Tasks:
+
+Use AJAX to load products dynamically when category clicked.
+
+Provide "Add to Cart" button.
+
+Store cart data in session or DB.
+
+Day 6: Cart Page Development
+Objective: View and manage cart.
+
+Tasks:
+
+Create cart.php.
+
+List all cart items with quantity, price, total.
+
+Add "Remove" and quantity update options (AJAX recommended).
+
+Calculate total price.
+
+Day 7: Checkout & Coupons
+Objective: Finalize purchase.
+
+Tasks:
+
+Build checkout.php.
+
+Enter coupon code, validate, apply discount.
+
+Generate order record in orders.
+
+Show estimated delivery note.
+
+Day 8: Dynamic AJAX & JSON Responses
+Objective: Make interface seamless.
+
+Tasks:
+
+Use jQuery AJAX for cart update, delete, coupon validation.
+
+Ensure server sends JSON responses.
+
+Simplify user experience.
+
+Day 9: Testing & Debugging
+Objective: Ensure all features work correctly.
+
+Tasks:
+
+Test registration, login, product display, cart operations, checkout.
+
+Fix bugs.
+
+Validate security.
+
+Day 10: UI/UX & Final Enhancements
+Objective: Polish project.
+
+Tasks:
+
+Improve UI using CSS/Bootstrap.
+
+Add order history or admin reports.
+
+Final testing.
+
+Prepare for deployment or demonstration.
+
+Summary:
+This 10-day plan balances core features development and testing, leading you from zero to a functional shopping cart application. Focus on incremental development with testing after each step for best results.

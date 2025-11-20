@@ -1,0 +1,51 @@
+$(document).ready(function(){
+  loadcoupons();
+  $("#coupon_form").on('submit',function(e){
+    e.preventDefault()
+    $.ajax({
+        url:$('#id').val()? "coupon/update.php" : "coupon/insert.php",
+        method:"POST",
+        data:{
+            id:$('#id').val(),
+            code:$('#code').val(),
+            discount_per:$('#discount_per').val()
+        },
+        success:function(r){
+            $('#msg').html(r)
+            loadcoupons()
+            $('#id').val("")
+            $('#submit').val("Insert")
+
+        }
+    })
+  })  
+  $(document).on('click','.editBtn',function(){
+    $('#id').val($(this).data('id'))
+    $('#code').val($(this).data('code'))
+    $('#discount_per').val($(this).data('discount_per'))
+    $('#submit').val("Update")
+  })
+  $(document).on('click','.delBtn',function(){
+    $.ajax({
+        url:"coupon/delete.php",
+        method:"POST",
+        data:{
+            id:$(this).data('id')
+        },
+        success:function(r){
+            $('#msg').html(r)
+            loadcoupons()
+        }
+    })
+  })
+
+});
+function loadcoupons(){
+    $.ajax({
+        url:"coupon/select.php",
+        method:"POST",
+        success:function(r){
+            $("#showdata").html(r)
+        }
+    })
+}

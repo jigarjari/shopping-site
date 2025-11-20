@@ -1,0 +1,57 @@
+$(document).ready(function(){
+  loaduser();
+  $("#user_form").on('submit',function(e){
+    e.preventDefault()
+    $.ajax({
+        url:$('#uid').val()? "user/update.php" : "user/insert.php",
+        method:"POST",
+        data:{
+            id:$('#uid').val(),
+            username:$('#username').val(),
+            email:$('#email').val(),
+            password:$('#password').val(),
+            status:$('#status').val(),
+            role:$('#role').val()
+        },
+        success:function(r){
+            $('#msg').html(r)
+            loaduser()
+            $('#uid').val("")
+            $('#submit').val("Insert")
+
+        }
+    })
+  })  
+  $(document).on('click','.editBtn',function(){
+    $('#uid').val($(this).data('id'))
+    $('#username').val($(this).data('username'))
+    $('#email').val($(this).data('email'))
+    $('#password').val($(this).data('password'))
+    $('#status').val($(this).data('status'))
+    $('#role').val($(this).data('role'))
+    $('#submit').val("Update")
+  })
+  $(document).on('click','.delBtn',function(){
+    $.ajax({
+        url:"user/delete.php",
+        method:"POST",
+        data:{
+            id:$(this).data('id')
+        },
+        success:function(r){
+            $('#msg').html(r)
+            loaduser()
+        }
+    })
+  })
+
+});
+function loaduser(){
+    $.ajax({
+        url:"user/select.php",
+        method:"POST",
+        success:function(r){
+            $("#showdata").html(r)
+        }
+    })
+}
